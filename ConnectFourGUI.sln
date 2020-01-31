@@ -14,4 +14,8 @@ Global
 		{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}.Release|anycpu.ActiveCfg = Release|anycpu
 		{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.VersionControlPolicy = $1
+	EndGlobalSection
 EndGlobal
