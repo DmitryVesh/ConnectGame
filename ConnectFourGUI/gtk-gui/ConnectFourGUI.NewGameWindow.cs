@@ -346,6 +346,8 @@ namespace ConnectFourGUI
 			this.DefaultWidth = 400;
 			this.DefaultHeight = 300;
 			this.Show();
+			this.cancelGameSettingsBtn.Clicked += new global::System.EventHandler(this.OnCancelGameSettingsBtnClicked);
+			this.startGameBtn.Clicked += new global::System.EventHandler(this.OnStartGameBtnClicked);
 		}
 	}
 }

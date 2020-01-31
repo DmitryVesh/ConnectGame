@@ -576,6 +576,7 @@
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">Cancel</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnCancelGameSettingsBtnClicked" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>
@@ -593,6 +594,7 @@
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">Start</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnStartGameBtnClicked" />
                   </widget>
                   <packing>
                     <property name="Position">2</property>

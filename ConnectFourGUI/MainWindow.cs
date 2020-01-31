@@ -20,8 +20,8 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnNewGameBtnClicked(object sender, EventArgs e)
     {
-        //if (newGameMenu.deleted) { newGameMenu = new NewGameWindow(); }
-        //if (!newGameMenu.showing) { newGameMenu.ShowWindow(); }
+        if (newGameMenu.deleted) { newGameMenu = new NewGameWindow(); }
+        if (!newGameMenu.showing) { newGameMenu.ShowWindow(); }
 
     }
 
