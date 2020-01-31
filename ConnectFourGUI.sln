@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFourGUI", "ConnectFourGUI\ConnectFourGUI.csproj", "{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}.Debug|anycpu.Build.0 = Debug|anycpu
+		{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}.Release|anycpu.ActiveCfg = Release|anycpu
+		{FEF2D254-AB8D-41D8-8647-7F3201D0EDAF}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
