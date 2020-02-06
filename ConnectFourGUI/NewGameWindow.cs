@@ -2,36 +2,25 @@
 
 namespace ConnectFourGUI
 {
-    public partial class NewGameWindow : Gtk.Window
+    public partial class NewGameWindow : MyWindows
     {
-        NotEnoughPlayersDialog notEnoughPlayersMessage = new NotEnoughPlayersDialog();
-        public bool showing, deleted;
+        PlayersErrorWindow playerErrorWindow = new PlayersErrorWindow();
+        PlayerEntryWindow playerEntryWindow;
 
         public int numRows, numColumns, numCountersWin, numHumanPlayers, numAIPlayers;
         public bool boolWaitAfterAIMove;
 
-        public NewGameWindow() : base(Gtk.WindowType.Toplevel)
-        {
-            BuildWindow();
-            DeleteEvent += delegate { DeleteWindow(); };
-        }
-        
-        public void BuildWindow()
+        public NewGameWindow()
         {
             Build();
-            showing = WindowControls.HideWindow(this);
-            deleted = false;
+            HideWindow();
         }
-        
-        protected void DeleteWindow()
-        {
-            deleted = true;
-            showing = false;
-        }
+
+        // Button clicks
 
         protected void OnCancelGameSettingsBtnClicked(object sender, EventArgs e)
         {
-            showing = WindowControls.HideWindow(this);
+            HideWindow();
         }
 
         protected void OnStartGameBtnClicked(object sender, EventArgs e)
@@ -39,8 +28,8 @@ namespace ConnectFourGUI
 
             if (numHumanPlayersSpinBtn.Value + numAIPlayersSpinBtn.Value > 1)
             {
-                notEnoughPlayersMessage.showing = WindowControls.HideWindow(notEnoughPlayersMessage);
-                showing = WindowControls.HideWindow(this);
+                playerErrorWindow.HideWindow();
+                HideWindow();
 
                 numRows = int.Parse(numRowsSpinBtn.Value.ToString());
                 numColumns = int.Parse(numColumnsSpinBtn.Value.ToString());
@@ -51,11 +40,15 @@ namespace ConnectFourGUI
                 if (AIMoveWaitButton.Active) { boolWaitAfterAIMove = true; }
                 else { boolWaitAfterAIMove = false; }
 
+                //Activate window that asks for player names and colours
+                playerEntryWindow = new PlayerEntryWindow(numHumanPlayers, numAIPlayers);
+                playerEntryWindow.ShowWindow();
+
             }
             else
             {
-                if (notEnoughPlayersMessage.deleted) { notEnoughPlayersMessage = new NotEnoughPlayersDialog(); }
-                notEnoughPlayersMessage.showing = WindowControls.ShowWindow(notEnoughPlayersMessage);
+                if (playerErrorWindow.IsDeleted()) { playerErrorWindow = new PlayersErrorWindow(); }
+                playerErrorWindow.ShowWindow();
             }
             
         }

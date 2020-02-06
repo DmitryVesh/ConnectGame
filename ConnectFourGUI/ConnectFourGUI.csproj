@@ -61,8 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NewGameWindow.cs" />
     <Compile Include="gtk-gui\ConnectFourGUI.NewGameWindow.cs" />
-    <Compile Include="NotEnoughPlayersDialog.cs" />
-    <Compile Include="gtk-gui\ConnectFourGUI.NotEnoughPlayersDialog.cs" />
+    <Compile Include="PlayerEntryWindow.cs" />
+    <Compile Include="gtk-gui\ConnectFourGUI.PlayerEntryWindow.cs" />
+    <Compile Include="PlayerErrorWindow.cs" />
+    <Compile Include="gtk-gui\ConnectFourGUI.PlayersErrorWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

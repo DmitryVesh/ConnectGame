@@ -3,27 +3,40 @@ using Gtk;
 
 namespace ConnectFourGUI
 {
-    class WindowControls
+    public class MyWindows : Window
     {
-        /*
-        public static bool BuildWindow(Window window)
+        protected bool showing = false, deleted = false;
+
+        public MyWindows() : base(Gtk.WindowType.Toplevel)
         {
-            window.Build();
-            return false;
+            deleted = false;
+            DeleteEvent += delegate { DeleteWindow(); };
         }
-        */
-        
-        public static bool ShowWindow(Window window)
+        public void ShowWindow()
         {
-            window.ShowAll();
-            return true;
+            ShowAll();
+            showing = true;
         }
-        public static bool HideWindow(Window window)
+        public void HideWindow()
         {
-            window.HideAll();
-            return false;
+            HideAll();
+            showing = false;
+        }
+        public void DeleteWindow()
+        {
+            showing = false;
+            deleted = true;
+        }
+        public bool IsDeleted()
+        {
+            return deleted;
+        }
+        public bool IsShowing()
+        {
+            return showing;
         }
     }
+
     class MainClass
     {
         public static void Main()

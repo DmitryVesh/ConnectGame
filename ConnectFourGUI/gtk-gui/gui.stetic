@@ -5,7 +5,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/ConnectFourGUI.exe" internal="true" />
+    <widget-library name="../bin/Release/ConnectFourGUI.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="696 486">
     <property name="MemberName" />
@@ -220,7 +220,7 @@
   </widget>
   <widget class="Gtk.Window" id="ConnectFourGUI.NewGameWindow" design-size="400 300">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">NewGameWindow</property>
+    <property name="Title" translatable="yes">New Game</property>
     <property name="WindowPosition">CenterOnParent</property>
     <child>
       <widget class="Gtk.VBox" id="vbox10">
@@ -622,29 +622,29 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Dialog" id="ConnectFourGUI.NotEnoughPlayersDialog" design-size="322 116">
+  <widget class="Gtk.Window" id="ConnectFourGUI.PlayerEntryWindow" design-size="396 372">
     <property name="MemberName" />
+    <property name="Title" translatable="yes">Player Entry</property>
     <property name="WindowPosition">CenterOnParent</property>
-    <property name="Buttons">1</property>
-    <property name="HelpButton">False</property>
-    <child internal-child="VBox">
-      <widget class="Gtk.VBox" id="dialog1_VBox">
+    <child>
+      <placeholder />
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="ConnectFourGUI.PlayersErrorWindow" design-size="381 118">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">Players Error</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox17">
         <property name="MemberName" />
-        <property name="BorderWidth">2</property>
+        <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+          <widget class="Gtk.Alignment" id="alignment9">
             <property name="MemberName" />
-            <property name="ShadowType">In</property>
             <child>
-              <widget class="Gtk.TextView" id="messageText">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="ShowScrollbars">True</property>
-                <property name="Editable">False</property>
-                <property name="CursorVisible">False</property>
-                <property name="Text" translatable="yes">Error, not enough players selected...
-Minimum total player number is 2...</property>
-              </widget>
+              <placeholder />
             </child>
           </widget>
           <packing>
@@ -652,30 +652,81 @@ Minimum total player number is 2...</property>
             <property name="AutoSize">True</property>
           </packing>
         </child>
-      </widget>
-    </child>
-    <child internal-child="ActionArea">
-      <widget class="Gtk.HButtonBox" id="dialog1_ActionArea">
-        <property name="MemberName" />
-        <property name="Spacing">10</property>
-        <property name="BorderWidth">5</property>
-        <property name="Size">1</property>
-        <property name="LayoutStyle">End</property>
         <child>
-          <widget class="Gtk.Button" id="buttonOk">
+          <widget class="Gtk.Label" id="errorMessageLbl">
             <property name="MemberName" />
-            <property name="CanDefault">True</property>
-            <property name="CanFocus">True</property>
-            <property name="UseStock">True</property>
-            <property name="Type">StockItem</property>
-            <property name="StockId">gtk-ok</property>
-            <property name="ResponseId">-5</property>
-            <signal name="Clicked" handler="OnButtonOkClicked" />
-            <property name="label">gtk-ok</property>
+            <property name="LabelProp" translatable="yes">error message</property>
+            <property name="Wrap">True</property>
           </widget>
           <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.VBox" id="vbox20">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.HBox" id="hbox16">
+                <property name="MemberName" />
+                <property name="Spacing">6</property>
+                <child>
+                  <widget class="Gtk.Alignment" id="alignment13">
+                    <property name="MemberName" />
+                    <child>
+                      <placeholder />
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Button" id="okBtn">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">50</property>
+                    <property name="HeightRequest">30</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">OK</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnOkBtnClicked" />
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">False</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Alignment" id="alignment11">
+                <property name="MemberName" />
+                <child>
+                  <placeholder />
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
           </packing>
         </child>
       </widget>

@@ -2,30 +2,33 @@
 using Gtk;
 using ConnectFourGUI;
 
-public partial class MainWindow : Window
+public partial class MainWindow : MyWindows
 {
 
     NewGameWindow newGameMenu = new NewGameWindow();
 
-    public MainWindow() : base(Gtk.WindowType.Toplevel)
+    public MainWindow()
     {
         Build();
-        WindowControls.ShowWindow(this);
+        ShowWindow();
     }
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
         Application.Quit();
         a.RetVal = true;
     }
+
+    // Button clicks
+
     protected void OnNewGameBtnClicked(object sender, EventArgs e)
     {
-        if (newGameMenu.deleted) { newGameMenu = new NewGameWindow(); }
-        if (!newGameMenu.showing) { newGameMenu.showing = WindowControls.ShowWindow(newGameMenu); }
+        if (newGameMenu.IsDeleted()) { newGameMenu = new NewGameWindow(); }
+        if (!newGameMenu.IsShowing()) { newGameMenu.ShowWindow(); }
     }
 
     protected void OnLoadGameBtnClicked(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void OnSettingsBtnClicked(object sender, EventArgs e)
