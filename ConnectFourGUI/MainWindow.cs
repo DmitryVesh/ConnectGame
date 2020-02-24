@@ -22,8 +22,8 @@ public partial class MainWindow : MyWindows
 
     protected void OnNewGameBtnClicked(object sender, EventArgs e)
     {
-        if (newGameMenu.IsDeleted()) { newGameMenu = new NewGameWindow(); }
-        if (!newGameMenu.IsShowing()) { newGameMenu.ShowWindow(); }
+        if (newGameMenu.IsDeleted()) { newGameMenu = new NewGameWindow(); HideWindow(); }
+        if (!newGameMenu.IsShowing()) { newGameMenu.ShowWindow(); HideWindow(); }
     }
 
     protected void OnLoadGameBtnClicked(object sender, EventArgs e)

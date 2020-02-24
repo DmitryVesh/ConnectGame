@@ -43,7 +43,7 @@ namespace ConnectFourGUI
         {
             Application.Init();
             MainWindow win = new MainWindow();
-            win.Show();
+            win.ShowWindow();
             Application.Run();
         }
     }

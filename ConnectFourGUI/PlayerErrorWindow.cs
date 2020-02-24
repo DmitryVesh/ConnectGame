@@ -5,6 +5,7 @@ namespace ConnectFourGUI
     {
         public PlayersErrorWindow()
         {
+            Title = "Error message";
             Build();
             errorMessageLbl.Text = "Error, the number of players entered is invalid...\nThe combined number of players, either AI or human players must be over 1...";
             HideWindow();

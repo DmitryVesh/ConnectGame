@@ -30,14 +30,13 @@ namespace ConnectFourGUI
             this.numHumanPlayers = numHumanPlayers;
             this.numAIPlayers = numAIPlayers;
             MakeWindow();
-            ShowAll();
+            HideWindow();
             
         }
 
-
         protected void MakeWindow()
         {
-            this.Resizable = false;
+            Resizable = false;
             //SetDefaultSize(700, 700);
 
             topAlignment = new Alignment(0.5F, 0.5F, 1F, 1F)
@@ -71,8 +70,9 @@ namespace ConnectFourGUI
                 Name = "okBtn",
                 Label = "OK",
                 WidthRequest = 60,
-                HeightRequest = 35
+                HeightRequest = 35           
             };
+            okBtn.Clicked += new EventHandler(OnOkBtnClicked);
 
             cancelBtn = new Button
             {
@@ -81,7 +81,7 @@ namespace ConnectFourGUI
                 WidthRequest = 60,
                 HeightRequest = 35
             };
-
+            cancelBtn.Clicked += new EventHandler(OnCancelBtnClicked);
 
 
             for (int playerCount = 0; playerCount < numHumanPlayers; playerCount++)
@@ -126,7 +126,7 @@ namespace ConnectFourGUI
                 EntryArray[playerCount] = new Entry
                 {
                     Name = $"Entry{playerCount}",
-                    Text = $"AI{playerCount - numHumanPlayers}"
+                    Text = $"AI_{playerCount - numHumanPlayers}"
                 };
 
                 ComboBoxArray[playerCount] = new ComboBox(new string[] { "hello", "ooff" })
@@ -160,5 +160,22 @@ namespace ConnectFourGUI
 
             Add(mainHBox);
         }
+
+        protected void OnOkBtnClicked(object sender, EventArgs e)
+        {
+            //f (ValidEntry) { }
+        }
+        protected void OnCancelBtnClicked(object sender, EventArgs e)
+        {
+            HideWindow();
+            DeleteWindow();
+        }
+        /*
+        protected bool ValidEntry()
+        {
+
+            return true;
+        }
+        */
     }
 }

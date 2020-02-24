@@ -5,13 +5,14 @@ namespace ConnectFourGUI
     public partial class NewGameWindow : MyWindows
     {
         PlayersErrorWindow playerErrorWindow = new PlayersErrorWindow();
-        PlayerEntryWindow playerEntryWindow;
+        PlayerEntryWindow playerEntryWindow = new PlayerEntryWindow(0, 0);
 
         public int numRows, numColumns, numCountersWin, numHumanPlayers, numAIPlayers;
         public bool boolWaitAfterAIMove;
 
         public NewGameWindow()
         {
+            playerEntryWindow.DeleteWindow();
             Build();
             HideWindow();
         }
@@ -41,6 +42,7 @@ namespace ConnectFourGUI
                 else { boolWaitAfterAIMove = false; }
 
                 //Activate window that asks for player names and colours
+                if (playerEntryWindow.IsDeleted()) { playerEntryWindow = new PlayerEntryWindow(numHumanPlayers, numAIPlayers); }
                 playerEntryWindow = new PlayerEntryWindow(numHumanPlayers, numAIPlayers);
                 playerEntryWindow.ShowWindow();
 
