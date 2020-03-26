@@ -52,6 +52,22 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="bin\drawings\blueCounter.png" />
+    <EmbeddedResource Include="bin\drawings\redCounter.png" />
+    <EmbeddedResource Include="bin\drawings\emptyTile.png" />
+    <EmbeddedResource Include="bin\drawings\brownCounter.png" />
+    <EmbeddedResource Include="bin\drawings\cyanCounter.png" />
+    <EmbeddedResource Include="bin\drawings\darkBlueCounter.png" />
+    <EmbeddedResource Include="bin\drawings\darkGreenCounter.png" />
+    <EmbeddedResource Include="bin\drawings\greenCounter.png" />
+    <EmbeddedResource Include="bin\drawings\greyCounter.png" />
+    <EmbeddedResource Include="bin\drawings\magentaCounter.png" />
+    <EmbeddedResource Include="bin\drawings\orangeCounter.png" />
+    <EmbeddedResource Include="bin\drawings\pinkCounter.png" />
+    <EmbeddedResource Include="bin\drawings\purpleCounter.png" />
+    <EmbeddedResource Include="bin\drawings\salmonCounter.png" />
+    <EmbeddedResource Include="bin\drawings\tealCounter.png" />
+    <EmbeddedResource Include="bin\drawings\yellowCounter.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -63,8 +79,12 @@
     <Compile Include="gtk-gui\ConnectFourGUI.NewGameWindow.cs" />
     <Compile Include="PlayerEntryWindow.cs" />
     <Compile Include="gtk-gui\ConnectFourGUI.PlayerEntryWindow.cs" />
-    <Compile Include="PlayerErrorWindow.cs" />
-    <Compile Include="gtk-gui\ConnectFourGUI.PlayersErrorWindow.cs" />
+    <Compile Include="ErrorWindow.cs" />
+    <Compile Include="ConnectFourGUI.ErrorWindow.cs" />
+    <Compile Include="GameWindow.cs" />
+    <Compile Include="gtk-gui\ConnectFourGUI.GameWindow.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Board.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

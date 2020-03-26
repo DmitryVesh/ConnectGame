@@ -66,7 +66,7 @@ namespace ConnectFourGUI
 			// Widget ConnectFourGUI.NewGameWindow
 			this.Name = "ConnectFourGUI.NewGameWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString("New Game");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 			// Container child ConnectFourGUI.NewGameWindow.Gtk.Container+ContainerChild
 			this.vbox10 = new global::Gtk.VBox();
 			this.vbox10.Name = "vbox10";

@@ -2,15 +2,20 @@
 using Gtk;
 using ConnectFourGUI;
 
-public partial class MainWindow : MyWindows
+public partial class MainWindow : MyWindow
 {
-
-    NewGameWindow newGameMenu = new NewGameWindow();
-
     public MainWindow()
     {
         Build();
         ShowWindow();
+        WindowClass.gameWindow = new GameWindow
+        (
+            new Player[] { new Player("Tom", "Red", new Gdk.Pixbuf("/Users/dmitry.veshchikov/Desktop/Code/CSharp/ConnectFourGUI/ConnectFourGUI/bin/drawings/redCounter.png", 50, 50)),
+                new Player("Ginger", "Blue", new Gdk.Pixbuf("/Users/dmitry.veshchikov/Desktop/Code/CSharp/ConnectFourGUI/ConnectFourGUI/bin/drawings/blueCounter.png", 50, 50)) },
+            new Board(7, 6, 4),
+            0, 2, true
+        );
+        WindowClass.gameWindow.Run();
     }
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
@@ -18,24 +23,19 @@ public partial class MainWindow : MyWindows
         a.RetVal = true;
     }
 
-    // Button clicks
-
     protected void OnNewGameBtnClicked(object sender, EventArgs e)
     {
-        if (newGameMenu.IsDeleted()) { newGameMenu = new NewGameWindow(); HideWindow(); }
-        if (!newGameMenu.IsShowing()) { newGameMenu.ShowWindow(); HideWindow(); }
+        if (WindowClass.newGameMenu.IsDeleted()) { WindowClass.newGameMenu = new NewGameWindow(); HideWindow(); }
+        if (!WindowClass.newGameMenu.IsShowing()) { WindowClass.newGameMenu.ShowWindow(); HideWindow(); }
     }
-
     protected void OnLoadGameBtnClicked(object sender, EventArgs e)
     {
         
     }
-
     protected void OnSettingsBtnClicked(object sender, EventArgs e)
     {
 
     }
-
     protected void OnQuitBtnClicked(object sender, EventArgs e)
     {
         Application.Quit();

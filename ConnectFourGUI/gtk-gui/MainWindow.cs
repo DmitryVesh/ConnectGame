@@ -41,7 +41,7 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("Main Menu");
-		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 		this.Resizable = false;
 		this.AllowGrow = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
@@ -54,7 +54,6 @@ public partial class MainWindow
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.vbox3 = new global::Gtk.VBox();
-		this.vbox3.Name = "vbox3";
 		this.vbox3.Spacing = 6;
 		// Container child vbox3.Gtk.Box+BoxChild
 		this.alignment4 = new global::Gtk.Alignment(0.5F, 0.5F, 1F, 1F);

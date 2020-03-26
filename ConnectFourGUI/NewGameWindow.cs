@@ -1,58 +1,52 @@
 ﻿using System;
+using Gtk;
 
 namespace ConnectFourGUI
 {
-    public partial class NewGameWindow : MyWindows
+    public partial class NewGameWindow : MyWindow
     {
-        PlayersErrorWindow playerErrorWindow = new PlayersErrorWindow();
-        PlayerEntryWindow playerEntryWindow = new PlayerEntryWindow(0, 0);
-
-        public int numRows, numColumns, numCountersWin, numHumanPlayers, numAIPlayers;
-        public bool boolWaitAfterAIMove;
-
+        //Need to check for valid connect number with the board dimensions entered
         public NewGameWindow()
         {
-            playerEntryWindow.DeleteWindow();
             Build();
             HideWindow();
         }
 
-        // Button clicks
-
-        protected void OnCancelGameSettingsBtnClicked(object sender, EventArgs e)
+        private void OnStartGameBtnClicked(object sender, EventArgs e)
         {
-            HideWindow();
-        }
-
-        protected void OnStartGameBtnClicked(object sender, EventArgs e)
-        {
-
             if (numHumanPlayersSpinBtn.Value + numAIPlayersSpinBtn.Value > 1)
             {
-                playerErrorWindow.HideWindow();
+                WindowClass.errorWindow.HideWindow();
+
                 HideWindow();
 
-                numRows = int.Parse(numRowsSpinBtn.Value.ToString());
-                numColumns = int.Parse(numColumnsSpinBtn.Value.ToString());
-                numCountersWin = int.Parse(numCountersWinSpinBtn.Value.ToString());
-                numHumanPlayers = int.Parse(numHumanPlayersSpinBtn.Value.ToString());
-                numAIPlayers = int.Parse(numAIPlayersSpinBtn.Value.ToString());
+                int numRows = int.Parse(numRowsSpinBtn.Value.ToString());
+                int numColumns = int.Parse(numColumnsSpinBtn.Value.ToString());
+                int numCountersWin = int.Parse(numCountersWinSpinBtn.Value.ToString());
+                Board board = new Board(numColumns, numRows, numCountersWin);
 
+                int numHumanPlayers = int.Parse(numHumanPlayersSpinBtn.Value.ToString());
+                int numAIPlayers = int.Parse(numAIPlayersSpinBtn.Value.ToString());
+
+                bool boolWaitAfterAIMove;
                 if (AIMoveWaitButton.Active) { boolWaitAfterAIMove = true; }
                 else { boolWaitAfterAIMove = false; }
 
-                //Activate window that asks for player names and colours
-                if (playerEntryWindow.IsDeleted()) { playerEntryWindow = new PlayerEntryWindow(numHumanPlayers, numAIPlayers); }
-                playerEntryWindow = new PlayerEntryWindow(numHumanPlayers, numAIPlayers);
-                playerEntryWindow.ShowWindow();
-
+                //Activate window that asks for player names and colors
+                WindowClass.playerEntryWindow = new PlayerEntryWindow(numHumanPlayers, numAIPlayers, board, boolWaitAfterAIMove);
+                WindowClass.playerEntryWindow.ShowWindow();
             }
             else
             {
-                if (playerErrorWindow.IsDeleted()) { playerErrorWindow = new PlayersErrorWindow(); }
-                playerErrorWindow.ShowWindow();
+                WindowClass.errorWindow.Destroy();
+                WindowClass.errorWindow = new ErrorWindow("Player number error", "Error, the number of players entered is invalid...\nThe combined number of players, either AI or human players must be over 1...");
+                WindowClass.errorWindow.ShowWindow();
             }
-            
+        }
+        private void OnCancelGameSettingsBtnClicked(object sender, EventArgs e)
+        {
+            HideWindow();
+            WindowClass.main.ShowWindow();
         }
     }
 }
