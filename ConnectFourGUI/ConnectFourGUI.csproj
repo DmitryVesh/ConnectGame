@@ -52,22 +52,6 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="bin\drawings\blueCounter.png" />
-    <EmbeddedResource Include="bin\drawings\redCounter.png" />
-    <EmbeddedResource Include="bin\drawings\emptyTile.png" />
-    <EmbeddedResource Include="bin\drawings\brownCounter.png" />
-    <EmbeddedResource Include="bin\drawings\cyanCounter.png" />
-    <EmbeddedResource Include="bin\drawings\darkBlueCounter.png" />
-    <EmbeddedResource Include="bin\drawings\darkGreenCounter.png" />
-    <EmbeddedResource Include="bin\drawings\greenCounter.png" />
-    <EmbeddedResource Include="bin\drawings\greyCounter.png" />
-    <EmbeddedResource Include="bin\drawings\magentaCounter.png" />
-    <EmbeddedResource Include="bin\drawings\orangeCounter.png" />
-    <EmbeddedResource Include="bin\drawings\pinkCounter.png" />
-    <EmbeddedResource Include="bin\drawings\purpleCounter.png" />
-    <EmbeddedResource Include="bin\drawings\salmonCounter.png" />
-    <EmbeddedResource Include="bin\drawings\tealCounter.png" />
-    <EmbeddedResource Include="bin\drawings\yellowCounter.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -85,6 +69,28 @@
     <Compile Include="gtk-gui\ConnectFourGUI.GameWindow.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Board.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Graphics\" />
+    <Folder Include="Graphics\counters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\counters\magentaCounter.png" />
+    <None Include="Graphics\counters\salmonCounter.png" />
+    <None Include="Graphics\counters\darkGreenCounter.png" />
+    <None Include="Graphics\counters\greyCounter.png" />
+    <None Include="Graphics\counters\tealCounter.png" />
+    <None Include="Graphics\counters\pinkCounter.png" />
+    <None Include="Graphics\counters\orangeCounter.png" />
+    <None Include="Graphics\counters\redCounter.png" />
+    <None Include="Graphics\counters\greenCounter.png" />
+    <None Include="Graphics\counters\cyanCounter.png" />
+    <None Include="Graphics\counters\purpleCounter.png" />
+    <None Include="Graphics\counters\emptyTile.png" />
+    <None Include="Graphics\counters\blueCounter.png" />
+    <None Include="Graphics\counters\darkBlueCounter.png" />
+    <None Include="Graphics\counters\yellowCounter.png" />
+    <None Include="Graphics\counters\brownCounter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
